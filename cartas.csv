@@ -1,0 +1,36 @@
+Zumbi,A,1,false,10,1.50,1.95,0.23
+Baby Zombie,A,2,false,10,2.25,0.98,0.46
+Drowned,A,3,false,10,6.50,1.95,0.23
+Esqueleto,A,4,false,10,1.50,1.99,0.25
+Stray,A,5,false,10,2.00,1.99,0.25
+Skeleton Horseman,A,6,false,35,3.00,2.55,0.24
+Creeper,A,7,false,10,21.50,1.70,0.25
+Aranha,A,8,false,8,1.00,0.90,0.30
+Cave Spider,A,9,false,6,3.50,0.50,0.35
+Bruxa,B,1,false,13,14.00,1.95,0.25
+Enderman,B,2,false,20,5.00,2.90,0.28
+Endermite,B,3,false,8,1.50,0.30,0.35
+Slime,B,4,false,32,1.00,2.04,0.20
+Magma Cube,B,5,false,32,1.00,1.30,0.20
+Ghast,B,6,false,50,4.50,4.00,0.20
+Blaze,B,7,false,10,4.50,1.70,0.23
+Zumbi Piglin,B,8,false,10,3.50,1.90,0.25
+Piglin Brute,B,9,false,25,13.00,1.95,0.35
+Piglin,C,1,false,8,8.00,1.95,0.35
+Hoglin,C,2,false,15,4.00,1.70,0.35
+Zoglin,C,3,false,25,4.00,1.40,0.35
+Pillager,C,4,false,12,2.50,1.90,0.25
+Evoker,C,5,false,12,9.00,1.90,0.25
+Vindicator,C,6,false,24,4.50,1.90,0.25
+Ravager,C,7,false,50,30.00,2.70,0.35
+Guardian,C,8,false,15,2.50,0.85,0.30
+Elder Guardian,C,9,false,40,5.00,1.90,0.30
+Shulker,D,1,false,15,2.00,0.50,0.25
+Phantom,D,2,false,10,2.00,0.90,0.40
+Silverfish,D,3,false,4,1.50,0.30,0.25
+Wither Skeleton,D,4,false,10,3.50,2.40,0.30
+Wither,D,5,false,150,30.00,3.00,0.50
+Ender Dragon,D,6,false,100,12.50,12.00,0.50
+Warden,D,7,false,250,17.50,3.00,0.30
+Strider,D,8,false,10,3.50,1.40,0.25
+Herobrine,D,9,true,300,35.00,1.95,0.50
