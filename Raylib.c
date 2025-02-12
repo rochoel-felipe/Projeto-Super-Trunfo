@@ -40,9 +40,6 @@ int gerarNumeroAleatorio(int min, int max) {
 
 
 
-
-
-
 //Função que tranfere carta de um jogador a outro 
 //Ela diminui uma carta do jogador1 e aumenta uma carta no jogador2
 void transferir_carta(Carta **cartas_jogador1, int *qtd_jogador1, Carta **cartas_jogador2, int *qtd_jogador2, int indice) {
@@ -61,9 +58,8 @@ void transferir_carta(Carta **cartas_jogador1, int *qtd_jogador1, Carta **cartas
     for (int i = indice; i < *qtd_jogador2 - 1; i++) {
         (*cartas_jogador2)[i] = (*cartas_jogador2)[i + 1]; // Move as cartas para a esquerda
     }//for
+
     
-
-
     // Reduzir o tamanho do baralho do jogador 2
     *cartas_jogador2 = realloc(*cartas_jogador2, (*qtd_jogador2 - 1) * sizeof(Carta));
     (*qtd_jogador2)--;
@@ -221,9 +217,7 @@ int main(){
         cartas_jogadores_2[i].velocidade = cartas[vetor_de_indice[i]].velocidade;
 
     }//for
-    
-    
-    
+
     
     for (int i = 0; i < quantidade_linhas/2; i++)
     {
@@ -251,13 +245,7 @@ int main(){
                        cartas_jogadores_2[i].altura,
                        cartas_jogadores_2[i].velocidade);
     }//for
-    printf("baralho 2 cabo\n");
-
-
-    
-
-                
-                
+    printf("baralho 2 cabo\n");      
          
         
 
@@ -272,7 +260,7 @@ int main(){
     Rectangle carta = { (GetScreenWidth() - 350) /2,(GetScreenHeight() - 525)/2 , 350, 525 }; // Posição X, Y e dimensões Largura, Altura
     
     Texture2D capa = LoadTexture("capa.jpg");
-    Texture2D fundo_game = LoadTexture("fundo_game.jpg");
+    Texture2D fundo_game = LoadTexture("fundo_game.png");
     Texture2D versocarta = LoadTexture("versocarta.png");
     Texture2D placa = LoadTexture("placa.jpg");
 
@@ -285,7 +273,6 @@ int main(){
     Color corbotao3 = RED;
     Color corbotao31 = GRAY;
     Color corcarta = GRAY;
-
 
  
     bool verificabotao1 = false;
@@ -306,8 +293,6 @@ int main(){
     
     int qtd_cartas_do_jogador1 = quantidade_linhas/2;
     int qtd_cartas_do_jogador2= quantidade_linhas/2;
-
-
     
     while (!WindowShouldClose()){
         
@@ -338,19 +323,9 @@ int main(){
             DrawTexture(placa, 10, 10, WHITE);
             DrawText("Voltar",23,23, 23,BLACK);      
             
-                
-////////////////////////////////////////////////////////////////////////////////////////////
-
-        
-        DrawText("Clique com o botao direito para sortear quem começa!", 50, 100, 40, BLACK);
-      
-        
-     
     }//if gameplay
     
-        
-            
-            
+             
             //AQUI COMEÇA A GAMEPLAY IHUUHHUHUHUHUHUHUHUHU
             gameplay = true;
             DrawTexture(fundo_game, 0, 0, WHITE);
@@ -363,7 +338,6 @@ int main(){
             DrawRectangleRec(botaoesc, corbotaoesc); // Desenhar o botão
             DrawTexture(placa, 10, 10, WHITE);
             DrawText("Voltar",23,23, 23,BLACK); 
-            
             
 
             //Exibe a primeira carta do jogador da vez para escolher uma carcteristica
@@ -398,9 +372,6 @@ int main(){
             DrawRectangleRec(altura2, GRAY); // Desenhar a carta
             Rectangle velocidade2 = { 290 ,600 , 350, 55 }; // Posição X, Y e dimensões Largura, Altura
             DrawRectangleRec(velocidade2, GRAY); // Desenhar a carta
-            
-            
-            
             
             
             
@@ -477,7 +448,6 @@ int main(){
                     }
                 }
                 
-                
 
                 // Se já passou 2 segundos, a carta reaparece
                 if (ocultando && GetTime() - tempoInicio > 4.0) {
@@ -491,7 +461,7 @@ int main(){
                     Rectangle carta2 = { 790, 155 , 350, 525 };
                     DrawRectangleRec(carta2, GRAY);
                 }//if
-    
+                
                 
                 Rectangle carta2 = { 790, 155 , 350, 525 };
                 DrawRectangleRec(carta2, GRAY);
@@ -508,7 +478,20 @@ int main(){
                 DrawText(buffer, 820, 500, 40, BLACK);
 
                 sprintf(buffer, "Velocidade: %.2f", cartas_jogadores_2[1].velocidade);
-                DrawText(buffer, 805, 600, 40, BLACK);                
+                DrawText(buffer, 805, 600, 40, BLACK);     
+
+                Rectangle nome3 = { 790 ,155 , 350, 30 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(nome3, BLACK); // Desenhar a carta
+                Rectangle vida3 = { 790 ,250 , 350, 30 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(vida3, BLACK); // Desenhar a carta
+                Rectangle dano3 = { 790 ,350 , 350, 5 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(dano3, BLACK); // Desenhar a carta
+                Rectangle altura3 = { 790 ,450 , 350, 5 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(altura3, BLACK); // Desenhar a carta
+                Rectangle velocidade3 = { 790 ,550 , 350, 5 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(velocidade3, BLACK); // Desenhar a carta  
+                Rectangle depoisvelocidade3 = { 790 ,650 , 350, 30 }; // Posição X, Y e dimensões Largura, Altura
+                DrawRectangleRec(depoisvelocidade3, BLACK); // Desenhar a carta                                
 
 
     // Se está ocultando, verifica se já passou o tempo de espera (ex: 2 segundos)
@@ -523,8 +506,6 @@ int main(){
         DrawRectangleRec(carta2, GRAY);
         DrawTexture(versocarta, 790, 155, WHITE);
     }
-            
-
         
         if(verificabotaovida || numero_bot == 1){
             
@@ -545,15 +526,13 @@ int main(){
                numero_bot = gerarNumeroAleatorio(1,4);
                 printf("Bot escolheu vida como atributo\n");
                 fflush(stdout); 
-
-             
+                
             }//else
             
             verificabotaovida = false;
 
         }//if verifica botao vida
 
-        
         
         if(verificabotaodano || numero_bot == 2){
             
@@ -579,7 +558,6 @@ int main(){
         }//if verifica botao dano
         
         if(verificabotaoaltura || numero_bot == 3 ){
-            
             
             if(cartas_jogadores_1[0].altura > cartas_jogadores_2[0].altura){
                
@@ -632,12 +610,6 @@ int main(){
         if(qtd_cartas_do_jogador1 == 0) { 
             printf("Jogador 2 é o vencedor!!!!!!!!!!!!!!!!!! \n ");
         }
-        
-    
-
-//////////////////////////////////////////////////////////////////////////////
-
-
             
                 if (CheckCollisionPointRec(posicaomouse, botao11)) {            
                     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
@@ -655,9 +627,6 @@ int main(){
                 }//if
                 
         }//if botao 1
-
-        
-            
         
         //Verifica se o mouse está sobre o botão2
         if (CheckCollisionPointRec(posicaomouse, botao2)&& !verificabotao1 && !verificabotao3) {
@@ -668,7 +637,7 @@ int main(){
             }//if
         }//if
         if(verificabotao2 && !verificabotao1 && !verificabotao3){
-            
+            DrawTexture(fundo_game, 0, 0, WHITE);
             if (CheckCollisionPointRec(posicaomouse, botao22)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                       PlaySound(efeito);
@@ -692,31 +661,55 @@ int main(){
             }//if
             
             char buffer[50];
-            DrawText("Você apertou o botão 2!",(1280 - (MeasureText("Você apertou o botão 2!", 60)))/2,30, 60,BLACK); 
-            
-            
+            DrawText("Deck de cartas!",(1280 - (MeasureText("Deck de cartas!", 60)))/2,30, 60,BLACK); 
             
             DrawRectangleRec(carta, corcarta); // Desenhar a carta
             
+            Rectangle antesnome = { 465 ,98 , 350, 30 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(antesnome, BLACK); // Desenhar a carta
+            Rectangle nome = { 465 ,220 , 350, 10 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(nome, BLACK); // Desenhar a carta
+            Rectangle vida = { 465 ,300 , 350, 10 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(vida, BLACK); // Desenhar a carta
+            Rectangle dano = { 465 ,400 , 350, 10 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(dano, BLACK); // Desenhar a carta
+            Rectangle altura = { 465 ,500 , 350, 10 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(altura, BLACK); // Desenhar a carta
+            Rectangle velocidade = { 465 ,600 , 350, 30 }; // Posição X, Y e dimensões Largura, Altura
+            DrawRectangleRec(velocidade, BLACK); // Desenhar a carta
+            
             sprintf(buffer, "%s", cartas[i].nome);
-            DrawText(buffer, 490, 120, 50, BLACK);
+            DrawText(buffer, 480, 160, 40, BLACK);
+            
+            sprintf(buffer, "%c", cartas[i].letra);
+            DrawText(buffer, 490, 200, 20, BLACK);
+            
+            sprintf(buffer, "%d", cartas[i].numero);
+            DrawText(buffer, 510, 200, 20, BLACK);
             
             sprintf(buffer, "Vida: %d", cartas[i].vida);
-            DrawText(buffer, 490, 200, 35, BLACK);
-            
+            DrawText(buffer, 500, 260, 40, BLACK);
+
             sprintf(buffer, "Dano: %.2f", cartas[i].dano);
-            DrawText(buffer, 490, 280, 35, BLACK);
+            DrawText(buffer, 500, 360, 40, BLACK);
 
             sprintf(buffer, "Altura: %.2f", cartas[i].altura);
-            DrawText(buffer, 490, 360, 35, BLACK);
+            DrawText(buffer, 500, 460, 40, BLACK);
 
             sprintf(buffer, "Velocidade: %.2f", cartas[i].velocidade);
-            DrawText(buffer, 490, 440, 35, BLACK);
+            DrawText(buffer, 480, 560, 40, BLACK); 
+            
          
             DrawRectangleRec(botao23, corbotao23); // Desenhar o botão de volta
             DrawRectangleRec(botao22, corbotao22); // Desenhar o botão de volta
             DrawRectangleRec(botao21, corbotao21); // Desenhar o botão de volta
-            DrawText("Voltar",20,20, 20,BLACK);
+            DrawTexture(placa, 10, 10, WHITE);
+            DrawText("Voltar",23,23, 23,BLACK);
+            
+            DrawTexture(placa, 232.5, (GetScreenHeight() - 50)/2, WHITE);
+            DrawTexture(placa, 1047.5, (GetScreenHeight() - 50)/2, WHITE);
+            DrawText("<-", 270.5, (GetScreenHeight() - 40)/2, 40, BLACK);
+            DrawText("->", 1080.5, (GetScreenHeight() - 40)/2, 40, BLACK);
 
               
             if (CheckCollisionPointRec(posicaomouse, botao21)) {            
@@ -745,10 +738,9 @@ int main(){
         }//if
         
         if(verificabotao3 && !verificabotao1 && !verificabotao2){
-            DrawText("coom soon!",(1280 - (MeasureText("coom soon!", 60)))/2,(720 - 100)/2, 60,BLACK);  
+            DrawText("Jogar Em Lan!",(1280 - (MeasureText("Jogar Em Lan!", 60)))/2,(720 - 100)/2, 60,BLACK);  
             DrawRectangleRec(botao31, corbotao31); // Desenhar o botão
             DrawText("Voltar",20,20, 20,BLACK);            
-            
             if (CheckCollisionPointRec(posicaomouse, botao31)) {                    
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     verificabotao31 = true;// Registra que o botão foi clicado 
@@ -773,15 +765,14 @@ int main(){
             DrawRectangleRec(botao2, corbotao2); // Desenhar o botão
             DrawRectangleRec(botao3, corbotao3); // Desenhar o botão
             DrawTexture(capa, 0, 0, WHITE);
-            DrawText("JOGAR!",(1280 - (MeasureText("JOGAR!", 40)))/2,334, 40,BLACK);
-            DrawText("BARALHO!",(1280 - (MeasureText("BARALHO!", 40)))/2,406, 40,BLACK);
-            DrawText("JOGAR EM LAN!",(1280 - (MeasureText("JOGAR EM LAN!", 40)))/2,478, 40,BLACK);
-            
-
-           
+            DrawText("Jogar",((1280 - (MeasureText("Jogar", 40)))/2)+2,336, 40,BLACK);
+            DrawText("Baralho!",((1280 - (MeasureText("Baralho!", 40)))/2)+2,408, 40,BLACK);
+            DrawText("Jogar Em Lan!",((1280 - (MeasureText("Jogar Em Lan!", 40)))/2)+2,480, 40,BLACK);
+            DrawText("Jogar",(1280 - (MeasureText("Jogar", 40)))/2,334, 40,WHITE);
+            DrawText("Baralho!",(1280 - (MeasureText("Baralho!", 40)))/2,406, 40,WHITE);
+            DrawText("Jogar Em Lan!",(1280 - (MeasureText("Jogar Em Lan!", 40)))/2,478, 40,WHITE);
+             
         }//if
-        
-        
 
         EndDrawing();
         
@@ -790,7 +781,6 @@ int main(){
     
     UnloadMusicStream(musica); // Libera a memória da música
     CloseAudioDevice(); // Fecha o sistema de áudio
-
  
     CloseWindow();       
 
